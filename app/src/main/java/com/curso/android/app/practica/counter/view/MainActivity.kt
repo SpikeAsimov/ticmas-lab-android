@@ -27,5 +27,15 @@ class MainActivity : AppCompatActivity() {
         binding.decrementButton.setOnClickListener {
             mainViewModel.decrementCounter()
         }
+
+        mainViewModel.resultaLiveData.observe(this) { result ->
+            binding.resultTextView.text = result
+        }
+
+        binding.compareButton.setOnClickListener(){
+            val text1 = binding.editText1.text.toString()
+            val text2 = binding.editText2.text.toString()
+            mainViewModel.compareTexts(text1, text2)
+        }
     }
 }

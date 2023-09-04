@@ -30,4 +30,17 @@ class MainViewModel: ViewModel() {
             _counter.value = Counter(next, Date())
         }
     }
+
+    //Crea un resultLiveData
+
+    val resultaLiveData = MutableLiveData<String>()
+
+    //Crearmos la funcion para comprar
+    fun compareTexts(text1: String, text2: String){
+        if (text1 == text2){
+            resultaLiveData.value = "Los textos son iguales."
+        } else {
+            resultaLiveData.value = "Los textos son diferentes."
+        }
+    }
 }
